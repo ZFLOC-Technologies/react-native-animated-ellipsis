@@ -1,17 +1,26 @@
 # React Native Animated Ellipsis
-A simple, customizable animated dots component for use in React Native apps. Ideal for loading screens.
+A simple, customizable animated dots component ideal for loading screens in React Native apps (forked from adorableio/react-native-animated-ellipsis - not maintained).
 
 ![Kinda like iOS](https://raw.githubusercontent.com/wiki/adorableio/react-native-animated-ellipsis/images/example_ios_ish.gif)
 
 
+## Fixed Issues
+1. `useNativeDriver` was not specified. This is a required option and must be explicitly set to `true` or `false`
+2. `undefined` is not an object evaluating `_reactNative.Text.propTypes.style` - (Deprecated prop types)
+
 ## Installation
-```shell
-npm install --save react-native-animated-ellipsis
+
+```sh
+# yarn
+yarn add @zfloc/react-native-animated-ellipsis
+
+# npm
+npm i @zfloc/react-native-animated-ellipsis
 ```
 
 ## Importing
 ```js
-import AnimatedEllipsis from 'react-native-animated-ellipsis';
+import AnimatedEllipsis from '@zfloc/react-native-animated-ellipsis';
 ```
 
 ## Usage
@@ -44,6 +53,7 @@ Customize the number of dots, animation speed, and style using these props:
 | **`animationDelay`** | The length in milliseconds of each phase of the animated. Defaults to **300**. |
 | **`minOpacity`** | The minimum opacity for the dots. Defaults to **0**. |
 | **`style`** | CSS to apply to the dots. It accepts any styles that a normal `<Text />` component can take. |
+| **`useNativeDriver`** | Specify true or false. Defaults to **true**. |
 
 
 ## More Examples
@@ -59,12 +69,13 @@ Customize the number of dots, animation speed, and style using these props:
 ![Complex Example](https://raw.githubusercontent.com/wiki/adorableio/react-native-animated-ellipsis/images/example_four_red_dots.gif)
 
 ```jsx
-<AnimatedEllipsis numberOfDots={4}
-                  animationDelay={150}
-                  style={{
-                    color: 'red',
-                    fontSize: 72,
-                  }}
+<AnimatedEllipsis 
+  numberOfDots={4}
+  animationDelay={150}
+  style={{
+    color: 'red',
+    fontSize: 72,
+  }}
 />
 ```
 
@@ -73,13 +84,14 @@ Customize the number of dots, animation speed, and style using these props:
 ![Kinda like iOS](https://raw.githubusercontent.com/wiki/adorableio/react-native-animated-ellipsis/images/example_ios_ish.gif)
 
 ```jsx
-<AnimatedEllipsis numberOfDots={3}
-                  minOpacity={0.4}
-                  animationDelay={200}
-                  style={{
-                    color: '#94939b',
-                    fontSize: 100,
-                    letterSpacing: -15,
-                  }}
-  />
+<AnimatedEllipsis 
+  numberOfDots={3}
+  minOpacity={0.4}
+  animationDelay={200}
+  style={{
+    color: '#94939b',
+    fontSize: 100,
+    letterSpacing: -15,
+  }}
+/>
 ```
